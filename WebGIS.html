@@ -1,0 +1,121 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KP</title>
+
+  <link rel="stylesheet" href="WebGIS.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://www.chartjs.org/samples/2.9.4/utils.js"></script>
+  <script src="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="wrapTitle">
+      <h3 class="titleKP">
+        Visualisasi Spatio-Temporal <i>Built-Up Area Index</i> Menggunakan Citra Sentinel 2A Wilayah Kajian Jabodetabek
+        pada Tahun 2021 - 2023
+      </h3>
+    </div>
+
+
+    <div class="custom-select-bua">
+      <select class="buaSelect">
+        <option value="" selected hidden>Choose BUA Layer:</option>
+        <option value="clear"></option>
+        <option value="bua2021revised">BUA 2021</option>
+        <option value="bua2022revised">BUA 2022</option>
+        <option value="bua2023revised">BUA 2023</option>
+      </select>
+    </div>
+
+    <div class="custom-select-city">
+      <select class="citySelect">
+        <option value="" selected hidden>Choose City:</option>
+        <option value="clear"></option>
+        <option value="Bekasi">Bekasi</option>
+        <option value="Bogor">Bogor</option>
+        <option value="Depok">Depok</option>
+        <option value="Jakarta Barat">Jakarta Barat</option>
+        <option value="Jakarta Pusat">Jakarta Pusat</option>
+        <option value="Jakarta Selatan">Jakarta Selatan</option>
+        <option value="Jakarta Timur">Jakarta Timur</option>
+        <option value="Jakarta Utara">Jakarta Utara</option>
+        <option value="Kepulauan Seribu">Kepulauan Seribu</option>
+        <option value="Kota Bekasi">Kota Bekasi</option>
+        <option value="Kota Bogor">Kota Bogor</option>
+        <option value="Kota Tangerang">Kota Tangerang</option>
+        <option value="Tangerang">Tangerang</option>
+        <option value="Tangerang">Tangerang Selatan</option>
+      </select>
+    </div>
+
+    <div class="sidebar">
+      <button class="layerContainer-toggle" type="button">
+        <span class="material-symbols-outlined layercontainerToggle">keyboard_double_arrow_right</span>
+      </button>
+
+      <div class="sidebarContainer">
+        <div class="bottomImage">
+          <img class="ugmLogo" src="./asset/Lambang UGM-putih.png">
+          <img class="bvtLogo" src="./asset/logo-bvt (cut).png" alt="">
+        </div>
+
+        <h2 class="infoTitle">Information</h2>
+
+        <div class="unavailable" style="display: flex; flex-direction: column; align-items: center;">
+          <div
+            style="background-color: rgb(20, 86, 153); width: 100px; height: 100px; border-radius: 50px; text-align: center;">
+            <span class="material-symbols-outlined" style="margin-top: 15px; font-size: 68px; color: white;">
+              priority_high
+            </span>
+          </div>
+          <!-- <span class="material-symbols-outlined" style="font-size: 8rem; color: white;">
+            error
+          </span> -->
+          <h4 style="color: white; margin-top: 12px;">Please Choose City to Display</h4>
+
+        </div>
+        <div class="legendWrapper">
+          <p class="legendTitle">Coba aja</p>
+
+          <div style="display: flex;">
+            <img class="legend">
+            <p>Hello Dolorem Ipsum Sit amet</p>
+          </div>
+        </div>
+        <!-- <button class="coba">Coba</button> -->
+
+        <div class="chartContainer">
+          <canvas id="myChart"></canvas>
+        </div>
+
+        <p class="narrativeInfo"></p>
+
+      </div>
+    </div>
+
+    <div id="map"></div>
+
+  </div>
+
+  <!-- <script src="./components/chart.js" type="module"></script> -->
+  <script src="WebGIS.js" type="module"></script>
+</body>
+
+</html>
